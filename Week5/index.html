@@ -11,6 +11,8 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css'
         integrity='sha512-q3eWabyZPc1XTCmF+8/LuE1ozpg5xxn7iO89yfSOd5/oKvyqLngoNGsx8jq92Y8eXJ/IRxQbEC+FGSYxtk2oiw=='
         crossorigin='anonymous' />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3.3.2/dist/vue-loading.css">
+
 </head>
 
 <body>
@@ -22,6 +24,9 @@
                 <!-- 產品Modal -->
 
                 <table class="table align-middle">
+                    <div v-if="isLoading" class="spinner-border m-5" role="status">
+                         <span class="sr-only">Loading...</span>
+                    </div>
                     <thead>
                         <tr>
                             <th>圖片</th>
@@ -31,6 +36,7 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         <tr v-for="(item) in products" :key="item.id">
                             <td style="width: 200px">
                                 <div style="height: 100px; background-size: cover;background-position: center" :style="{backgroundImage:`url(${item.imageUrl
@@ -228,7 +234,9 @@
     <script src="https://cdn.jsdelivr.net/npm/@vee-validate/rules@4.5.8/dist/vee-validate-rules.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@vee-validate/i18n@4.5.8/dist/vee-validate-i18n.min.js"></script>
 
+ 
 
+    <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@3.4.0/dist/vue-loading.min.js"></script>
      <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 

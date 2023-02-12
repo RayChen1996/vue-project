@@ -162,4 +162,5 @@ createApp({
 }).component("VForm", VeeValidate.Form)
   .component("VField", VeeValidate.Field)
   .component("ErrorMessage", VeeValidate.ErrorMessage)
+  .component('loading', VueLoading)
   .mount("#app");

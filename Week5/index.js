@@ -61,6 +61,7 @@ createApp({
     },
     viewMore(item) {
       this.isLoading = true;
+      this.orderCount = 1;
       this.more = item;
       this.myModal.show();
       setTimeout(() => {
@@ -130,6 +131,13 @@ createApp({
         this.showSweetAlert("已清空");
       });
     },
+    clearOrderFrom(){
+      this.form.email = "";
+      this.form.name = "";
+      this.form.phone = "";
+      this.form.address = "";
+      this.form.message = "";
+    },
     createOrder() {
         axios
         .post(`${BaseUrl}/api/${API_PATH}/order`, { 
@@ -147,7 +155,8 @@ createApp({
             this.getCart();
             this.showSweetAlert("已送出訂單");
             this.isLoading = false;
-            this.$refs.form.reset();
+            // this.$refs.form.reset();
+            this.clearOrderFrom();//清空表單輸入
         })
         .catch((err)=>{
             console.log(err.data.message);
